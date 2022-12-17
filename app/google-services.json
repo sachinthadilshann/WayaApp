@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1097538024392",
+    "project_id": "waya-app-c5912",
+    "storage_bucket": "waya-app-c5912.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097538024392:android:cb4691ad3f269c5b1f46fd",
+        "android_client_info": {
+          "package_name": "com.seproject.wayaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097538024392-o9p3sqeh3aplucfr4lk7301n5fb5rhmc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_kV7gT_jzpqXZPLbL4hGGRuxtoJIVfzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097538024392-o9p3sqeh3aplucfr4lk7301n5fb5rhmc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
