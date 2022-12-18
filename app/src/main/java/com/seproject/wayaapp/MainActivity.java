@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.seproject.wayaapp.activities.SocietiesActivity;
+
 public class MainActivity extends AppCompatActivity {
-    RelativeLayout PProfile,DDownloads,NNotice,LLMS,AAbout,WWebsite;
+    RelativeLayout PProfile,DDownloads,NNotice,SSocieties,LLMS,AAbout,WWebsite;
 
 
     @Override
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         PProfile = (RelativeLayout) findViewById(R.id.profile);
         DDownloads =(RelativeLayout) findViewById(R.id.Downloads1);
+        SSocieties =(RelativeLayout) findViewById(R.id.societies1);
         NNotice = (RelativeLayout) findViewById(R.id.notice1);
         LLMS = (RelativeLayout) findViewById(R.id.lms);
         WWebsite = (RelativeLayout) findViewById(R.id.website);
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         PProfile.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Profile.class)));
         DDownloads.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Downloads.class)));
+        SSocieties.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), SocietiesActivity.class)));
         NNotice.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Notice.class)));
         LLMS.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),LMS.class)));
         WWebsite.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Website.class)));
