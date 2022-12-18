@@ -27,10 +27,19 @@ public class level3 extends AppCompatActivity {
 
         generalbtn = (RelativeLayout) findViewById(R.id.general);
         jointmajprbtn = (RelativeLayout) findViewById(R.id.jointmajor);
+        specialbtn = (RelativeLayout)  findViewById(R.id.special);
 
 
         generalbtn.setOnClickListener(v -> {
             initDownload();
+        });
+
+        jointmajprbtn.setOnClickListener(v -> {
+            initDownloadd();
+        });
+
+        specialbtn.setOnClickListener(v -> {
+            initDownloadsp();
         });
 
     }
@@ -38,6 +47,16 @@ public class level3 extends AppCompatActivity {
 
     private void initDownload() {
         String uri = "https://fas.wyb.ac.lk/wp-content/uploads/2022/10/Application-Form-3-General.doc";
+        download(getApplicationContext(), "Application-Form-3-General", ".doc", "Downloads", uri.trim());
+    }
+
+    private void initDownloadd() {
+        String uri = "https://fas.wyb.ac.lk/wp-content/uploads/2022/10/Application-Form-3-Joint-major.doc";
+        download(getApplicationContext(), "Application-Form-3-General", ".doc", "Downloads", uri.trim());
+    }
+
+    private void initDownloadsp() {
+        String uri = "https://fas.wyb.ac.lk/wp-content/uploads/2022/10/Application-Form-3-Special.doc";
         download(getApplicationContext(), "Application-Form-3-General", ".doc", "Downloads", uri.trim());
     }
 

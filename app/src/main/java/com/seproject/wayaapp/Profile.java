@@ -108,7 +108,7 @@ public class Profile extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if(documentSnapshot.exists()){
                     number.setText(documentSnapshot.getString("Registation Number"));
-                    fullName.setText(documentSnapshot.getString("fName"));
+                    fullName.setText(documentSnapshot.getString("Full Name"));
                     email.setText(documentSnapshot.getString("email"));
 
                 }else {

@@ -16,12 +16,15 @@ public class Downloads extends AppCompatActivity {
         setContentView(R.layout.activity_downloads);
 
         ll1= (RelativeLayout) findViewById(R.id.lev1);
+        ll2= (RelativeLayout) findViewById(R.id.lev2);
         ll3= (RelativeLayout) findViewById(R.id.lev3);
 
 
 
         ll1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),level1.class)));
         ll3.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),level3.class)));
+        ll2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),level2_Downloads.class)));
+
 
 
     }

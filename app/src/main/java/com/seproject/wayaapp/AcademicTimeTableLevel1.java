@@ -23,8 +23,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Resultlevel1 extends AppCompatActivity {
 
+public class AcademicTimeTableLevel1 extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -33,7 +33,7 @@ public class Resultlevel1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resultlevel1);
+        setContentView(R.layout.activity_academic_time_table_level1);
 
 
         pdfView = findViewById(R.id.pdfView);
@@ -41,7 +41,7 @@ public class Resultlevel1 extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
 
 
-        databaseReference = firebaseDatabase.getReference("level_1_result");
+        databaseReference = firebaseDatabase.getReference("Level 1 Academic Time Table");
         initializePDFView();
 
     }
@@ -58,7 +58,7 @@ public class Resultlevel1 extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Resultlevel1.this, "Fail to get PDF url.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AcademicTimeTableLevel1.this, "Fail to get PDF url.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -91,4 +91,3 @@ public class Resultlevel1 extends AppCompatActivity {
 
     }
 }
-

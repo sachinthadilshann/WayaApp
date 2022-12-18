@@ -1,6 +1,7 @@
 package com.seproject.wayaapp;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -11,10 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.sql.Time;
 
 public class MainActivity extends AppCompatActivity {
-    RelativeLayout PProfile,DDownloads,NNotice,LLMS,AAbout,WWebsite,RResult;
+    RelativeLayout PProfile,DDownloads,NNotice,LLMS,AAbout,WWebsite,RResult,TTimetable;
 
 
 
@@ -30,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         WWebsite = (RelativeLayout) findViewById(R.id.website);
         AAbout = (RelativeLayout) findViewById(R.id.about1);
         RResult= (RelativeLayout) findViewById(R.id.result);
+        TTimetable= (RelativeLayout) findViewById(R.id.timetable);
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("news")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Done";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed";
+                        }
+
+                    }
+                });
 
 
         PProfile.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Profile.class)));
@@ -39,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         WWebsite.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Website.class)));
         AAbout.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), About.class)));
         RResult.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Result.class)));
+        TTimetable.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Timetable.class)));
 
 
     }
