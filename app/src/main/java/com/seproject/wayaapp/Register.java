@@ -86,7 +86,8 @@ public class Register extends AppCompatActivity {
                 }
 
                 if(TextUtils.isEmpty(number)){
-                    mNumber.setError("ID number is Required");
+                    mNumber.setError("Registation Number Must be ==6 Characters");
+
                     return;
                 }
 
@@ -114,9 +115,9 @@ public class Register extends AppCompatActivity {
                             userID = fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = fStore.collection("users").document(userID);
                             Map<String,Object> user = new HashMap<>();
-                            user.put("fName",fullName);
+                            user.put("Full Name",fullName);
                             user.put("email",email);
-                            user.put("NIC",number);
+                            user.put("Registation Number",number);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
