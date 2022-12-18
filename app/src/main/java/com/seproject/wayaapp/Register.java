@@ -118,6 +118,7 @@ public class Register extends AppCompatActivity {
                             user.put("Full Name",fullName);
                             user.put("email",email);
                             user.put("Registation Number",number);
+                            user.put("isAdmin",false);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

@@ -4,7 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SocietiesActivity">
+    tools:context=".activities.SocietiesActivity"
+    android:backgroundTint="#1F4287"
+    android:foregroundTint="#1F4287"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/socirty_RView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/create_society_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#1F4287"
+        android:foregroundTint="#1F4287"/>
 
     <Button
         android:id="@+id/create_society_btn"
@@ -17,6 +33,7 @@
         android:textColor="#21E6C1"
         android:text="Create Society"
         android:textAllCaps="false"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

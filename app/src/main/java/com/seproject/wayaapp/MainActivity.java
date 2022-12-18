@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         LLMS = (RelativeLayout) findViewById(R.id.lms);
         WWebsite = (RelativeLayout) findViewById(R.id.website);
         AAbout = (RelativeLayout) findViewById(R.id.about1);
-        RResult= (RelativeLayout) findViewById(R.id.result);
-        TTimetable= (RelativeLayout) findViewById(R.id.timetable);
 
 
         FirebaseMessaging.getInstance().subscribeToTopic("news")
@@ -62,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         LLMS.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), LMS.class)));
         WWebsite.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Website.class)));
         AAbout.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), About.class)));
-        RResult.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Result.class)));
-        TTimetable.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Timetable.class)));
 
 
     }
