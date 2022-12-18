@@ -107,7 +107,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if(documentSnapshot.exists()){
-                    number.setText(documentSnapshot.getString("NIC"));
+                    number.setText(documentSnapshot.getString("Registation Number"));
                     fullName.setText(documentSnapshot.getString("fName"));
                     email.setText(documentSnapshot.getString("email"));
 
@@ -166,7 +166,7 @@ public class Profile extends AppCompatActivity {
                 Intent i = new Intent(v.getContext(),EditProfile.class);
                 i.putExtra("fullName",fullName.getText().toString());
                 i.putExtra("email",email.getText().toString());
-                i.putExtra("NIC",number.getText().toString());
+                i.putExtra("Registation Number",number.getText().toString());
                 startActivity(i);
 
 

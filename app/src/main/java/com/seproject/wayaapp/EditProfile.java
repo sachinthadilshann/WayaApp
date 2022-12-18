@@ -56,7 +56,7 @@ public class EditProfile extends AppCompatActivity {
         Intent data = getIntent();
         final String fullName = data.getStringExtra("fullName");
         String email = data.getStringExtra("email");
-        String number = data.getStringExtra("NIC");
+        String number = data.getStringExtra("Registation Number");
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -107,7 +107,7 @@ public class EditProfile extends AppCompatActivity {
                         Map<String,Object> edited = new HashMap<>();
                         edited.put("email",email);
                         edited.put("fName",profileFullName.getText().toString());
-                        edited.put("NIC",profileNumber.getText().toString());
+                        edited.put("Registation Number",profileNumber.getText().toString());
                         docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
