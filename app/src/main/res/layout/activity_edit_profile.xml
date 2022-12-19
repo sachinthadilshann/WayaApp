@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+        app:srcCompat="@drawable/addphoto" />
 
     <EditText
         android:id="@+id/profileEmailAddress"
@@ -63,14 +63,15 @@
         android:id="@+id/saveProfileInfo"
         android:layout_width="181dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="48dp"
         android:text="Save"
         android:textSize="18sp"
+        android:background="@drawable/rectangle1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

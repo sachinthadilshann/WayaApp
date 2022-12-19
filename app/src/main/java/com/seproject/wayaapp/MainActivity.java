@@ -22,7 +22,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.sql.Time;
 
 public class MainActivity extends AppCompatActivity {
-    RelativeLayout PProfile,DDownloads,NNotice,SSocieties,LLMS,AAbout,WWebsite,RResult,TTimetable;
+    RelativeLayout PProfile,DDownloads,NNotice,SSocieties,LLMS,AAbout,WWebsite,RResult,TTimetable,FFile_upload;
 
 
 
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         AAbout = (RelativeLayout) findViewById(R.id.about1);
         RResult= (RelativeLayout) findViewById(R.id.result);
         TTimetable= (RelativeLayout) findViewById(R.id.timetable);
+        FFile_upload= (RelativeLayout) findViewById(R.id.file_upload);
+
 
 
         FirebaseMessaging.getInstance().subscribeToTopic("news")
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         AAbout.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), About.class)));
         RResult.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Result.class)));
         TTimetable.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Timetable.class)));
+        FFile_upload.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Level1_upload.class)));
 
 
     }
