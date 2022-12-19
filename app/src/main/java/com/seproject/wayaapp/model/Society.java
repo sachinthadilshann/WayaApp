@@ -1,6 +1,5 @@
 package com.seproject.wayaapp.model;
 
-import android.net.Uri;
 
 public class Society {
 

@@ -2,9 +2,14 @@ package com.seproject.wayaapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,6 +27,8 @@ public class SocietyActivity extends AppCompatActivity {
     private ImageView image;
     private TextView sName, lName;
     private FirebaseFirestore firebaseFirestore;
+    private RelativeLayout events, jobs, messages, about, members;
+    private Button createEvent, sendMsg, postJob;
     StorageReference storageReference;
     FirebaseAuth fAuth;
 
@@ -37,6 +44,14 @@ public class SocietyActivity extends AppCompatActivity {
         image = findViewById(R.id.societyDp);
         sName = findViewById(R.id.societySname);
         lName = findViewById(R.id.societyLname);
+        events = findViewById(R.id.events1);
+        jobs = findViewById(R.id.jobs1);
+        messages = findViewById(R.id.messages1);
+        about = findViewById(R.id.about11);
+        members = findViewById(R.id.members1);
+        createEvent = findViewById(R.id.createEventBtn);
+        sendMsg = findViewById(R.id.sendMsgBtn);
+        postJob = findViewById(R.id.postJobBtn);
 
         String sn = getIntent().getStringExtra("sname");
         String ln = getIntent().getStringExtra("lname");
@@ -51,6 +66,25 @@ public class SocietyActivity extends AppCompatActivity {
                 Picasso.get().load(uri).into(image);
             }
         });
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EventsActivity.class);
+                intent.putExtra("sname",sn);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CreateEventActivity.class);
+                intent.putExtra("sname",sn);
+                v.getContext().startActivity(intent);
+            }
+        });
+
 
 
     }
