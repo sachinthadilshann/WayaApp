@@ -5,16 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,12 +34,13 @@ import com.seproject.wayaapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
 public class CreateEventActivity extends AppCompatActivity {
     EditText id, title,desc;
-    Button createEventBtn;
+    Button createEventBtn,expBtn;
     ImageView flyer;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
@@ -43,6 +48,7 @@ public class CreateEventActivity extends AppCompatActivity {
     FirebaseUser user;
     StorageReference storageReference;
     String society;
+    int dateTime[] = {2022,11,21,9,0};
 
 
     @SuppressLint("MissingInflatedId")
@@ -55,6 +61,7 @@ public class CreateEventActivity extends AppCompatActivity {
         desc = findViewById(R.id.eventDesc);
         createEventBtn = findViewById(R.id.event_submit_btn);
         flyer = findViewById(R.id.eventimg);
+        expBtn = findViewById(R.id.expBtn);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -162,5 +169,37 @@ public class CreateEventActivity extends AppCompatActivity {
         if(str.length()>32)
             str = str.substring(0,30);
         return str;
+    }
+
+    public void setExpire(View view) {
+
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                dateTime[3]=hourOfDay;
+                dateTime[4]=minute;
+                expBtn.setText(String.format(Locale.getDefault(),"Exp. on %04d-%02d-%02d %02d:%02d",dateTime[0],dateTime[1],dateTime[2],dateTime[3],dateTime[4]));
+            }
+        };
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,onTimeSetListener,dateTime[3],dateTime[4],true);
+        timePickerDialog.setTitle("Select Time");
+        timePickerDialog.show();
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                dateTime[0]=year;
+                dateTime[1]=month;
+                dateTime[2]=dayOfMonth;
+                expBtn.setText(String.format(Locale.getDefault(),"Exp. on %04d-%02d-%02d %02d:%02d",dateTime[0],dateTime[1],dateTime[2],dateTime[3],dateTime[4]));
+            }
+        };
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,onDateSetListener,dateTime[0],dateTime[1],dateTime[2]);
+        datePickerDialog.setTitle("SelectDate");
+        datePickerDialog.show();
+
+
     }
 }

@@ -41,6 +41,7 @@ public class EventActivity extends AppCompatActivity {
         String desc1 = getIntent().getStringExtra("desc");
         String sn = getIntent().getStringExtra("societyname");
         String id = getIntent().getStringExtra("eventId");
+        String exp = getIntent().getStringExtra("exp");
 
         title.setText(titile);
         desc.setText(desc1);

@@ -2,14 +2,23 @@ package com.seproject.wayaapp.model;
 
 public class Event {
 
-    String society,title, desc, id;
+    String society,title, desc, id,exp;
     int count = 0;
 
-    public Event(String society,String title, String desc, String id) {
+    public Event(String society,String title, String desc, String id,String exp) {
         this.society = society;
         this.title = title;
         this.desc = desc;
         this.id = id;
+        this.exp = exp;
+    }
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
     }
 
     public int getCount() {

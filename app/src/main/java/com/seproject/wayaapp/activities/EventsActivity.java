@@ -19,9 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.seproject.wayaapp.R;
 import com.seproject.wayaapp.adapter.EventAdapter;
-import com.seproject.wayaapp.adapter.SocietyAdapter;
 import com.seproject.wayaapp.model.Event;
-import com.seproject.wayaapp.model.Society;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +54,7 @@ public class EventsActivity extends AppCompatActivity {
         adapter = new EventAdapter(this,list);
         eventRV.setLayoutManager(new LinearLayoutManager(this));
         eventRV.setAdapter(adapter);
+
         sname = getIntent().getStringExtra("sname");
 
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
@@ -73,7 +72,8 @@ public class EventsActivity extends AppCompatActivity {
                                             sname,
                                             snapshot.getString("title"),
                                             snapshot.getString("desc"),
-                                            snapshot.getString("id")
+                                            snapshot.getString("id"),
+                                            snapshot.getString("exp")
                                     ));
                                 }
 
