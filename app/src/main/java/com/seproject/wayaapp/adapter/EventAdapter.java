@@ -1,5 +1,6 @@
 package com.seproject.wayaapp.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -50,9 +51,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(list.get(position).getTitle());
-        holder.desc.setText(list.get(position).getDesc());
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -61,7 +61,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         storageReference = FirebaseStorage.getInstance().getReference();
 
 
-        StorageReference profileRef = storageReference.child("societies/"+ list.get(position).getId()+"/profile.jpg");
+        StorageReference profileRef = storageReference.child("societies/"+ list.get(position).getSociety()+"/" + list.get(position).getId()+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -75,6 +75,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 Intent intent = new Intent(context, EventActivity.class);
                 intent.putExtra("societyname",list.get(position).getSociety());
                 intent.putExtra("eventId",list.get(position).getId());
+                intent.putExtra("title",list.get(position).getId());
+                intent.putExtra("desc",list.get(position).getId());
                 context.startActivity(intent);
             }
         });
@@ -88,7 +90,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView flyer;
-        private TextView title,desc;
+        private TextView title;
         private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -96,7 +98,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
             flyer = itemView.findViewById(R.id.flyer);
             title = itemView.findViewById(R.id.eventTitle);
-            desc = itemView.findViewById(R.id.eventDesc);
 
             cardView = itemView.findViewById(R.id.card_view2);
 

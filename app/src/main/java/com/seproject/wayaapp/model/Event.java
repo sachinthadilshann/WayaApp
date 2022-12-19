@@ -2,16 +2,15 @@ package com.seproject.wayaapp.model;
 
 public class Event {
 
-    public String getSociety() {
-        return society;
-    }
-
-    public void setSociety(String society) {
-        this.society = society;
-    }
-
     String society,title, desc, id;
     int count = 0;
+
+    public Event(String society,String title, String desc, String id) {
+        this.society = society;
+        this.title = title;
+        this.desc = desc;
+        this.id = id;
+    }
 
     public int getCount() {
         return count;
@@ -21,11 +20,12 @@ public class Event {
         this.count = count;
     }
 
-    public Event(String society,String title, String desc, String id) {
+    public String getSociety() {
+        return society;
+    }
+
+    public void setSociety(String society) {
         this.society = society;
-        this.title = title;
-        this.desc = desc;
-        this.id = id;
     }
 
     public String getTitle() {

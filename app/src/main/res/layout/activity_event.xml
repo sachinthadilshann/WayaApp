@@ -18,23 +18,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:elevation="3dp"
             android:padding="2dp"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/eventDesc"
+            app:layout_constraintBottom_toTopOf="@+id/flyer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/flyer"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
             android:layout_centerVertical="true"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:padding="12dp"
             app:layout_constraintBottom_toTopOf="@id/eventDesc"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,14 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:elevation="3dp"
             android:padding="2dp"
-            android:textColor="#21E6C1"
+            android:textColor="#278EA5"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/eventTitle"/>
-
+            app:layout_constraintTop_toBottomOf="@id/flyer"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
