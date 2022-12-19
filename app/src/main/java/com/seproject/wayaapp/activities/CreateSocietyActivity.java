@@ -33,13 +33,15 @@ import com.seproject.wayaapp.R;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class CreateSocietyActivity extends AppCompatActivity {
 
-    EditText id,name,pId, sId;
+    EditText id,name,pId, sId,section;
     Button createSocBtn;
     ImageView societyLogo;
     FirebaseAuth fAuth;
@@ -57,6 +59,7 @@ public class CreateSocietyActivity extends AppCompatActivity {
         name = findViewById(R.id.society_name);
         pId = findViewById(R.id.president_id);
         sId = findViewById(R.id.secretary_id);
+        section = findViewById(R.id.sections);
         createSocBtn = findViewById(R.id.society_submit_btn);
         societyLogo = findViewById(R.id.society_img_upload);
 
@@ -87,6 +90,8 @@ public class CreateSocietyActivity extends AppCompatActivity {
                 final String ppId = pId.getText().toString();
                 final String ssId = sId.getText().toString();
                 final String iid = id.getText().toString();
+                final String arr = section.getText().toString();
+                List<String> sectionsList = Arrays.asList(arr.split(","));
 
                 if(nname.isEmpty() || ppId.isEmpty() || ssId.isEmpty()){
                     Toast.makeText(CreateSocietyActivity.this, "One or Many fields are empty.", Toast.LENGTH_SHORT).show();
@@ -114,9 +119,21 @@ public class CreateSocietyActivity extends AppCompatActivity {
                         finish();
                     }
                 });
+
+                for(int i = 0; i<sectionsList.size();i++){
+                    docRef = fStore.collection("societies/"+finalid+"/sections").document(sectionsList.get(i).trim());
+                    edited.clear();
+                    edited.put("id",sectionsList.get(i).trim());
+                    docRef.set(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(CreateSocietyActivity.this, "Sections Created", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    });
+                }
+
                 Toast.makeText(CreateSocietyActivity.this, "Successful.", Toast.LENGTH_SHORT).show();
-
-
             }
         });
 

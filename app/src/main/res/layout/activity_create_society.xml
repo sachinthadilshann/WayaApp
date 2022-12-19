@@ -75,9 +75,9 @@
         android:textAllCaps="false"
         android:textColor="#21E6C1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/society_img_upload"
-        app:layout_constraintStart_toStartOf="@+id/society_img_upload"
-        app:layout_constraintTop_toBottomOf="@+id/society_img_upload" />
+        app:layout_constraintEnd_toEndOf="@+id/sections"
+        app:layout_constraintStart_toStartOf="@+id/sections"
+        app:layout_constraintTop_toBottomOf="@+id/sections" />
 
     <TextView
         android:id="@+id/textView"
@@ -101,6 +101,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.074"
         app:srcCompat="@drawable/addimage" />
+
+    <EditText
+        android:id="@+id/sections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Sections in Society : Seperated by a Comma"
+        app:layout_constraintTop_toBottomOf="@id/society_img_upload"
+        tools:layout_editor_absoluteX="16dp" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

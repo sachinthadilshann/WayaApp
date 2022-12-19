@@ -111,7 +111,6 @@ public class CreateEventActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(CreateEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), SocietyActivity.class));
                         finish();
                     }
                 });
