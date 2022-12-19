@@ -536,7 +536,7 @@
                             android:textSize="18sp" />
 
                         <TextView
-                            android:layout_width="170dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="65dp"
                             android:elevation="3dp"
                             android:text="File Upload"
