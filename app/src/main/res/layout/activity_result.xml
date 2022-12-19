@@ -65,9 +65,10 @@
                                 android:layout_height="wrap_content"
                                 android:elevation="3dp"
                                 android:text="First Year Result"
-                                android:textColor="@color/cardview_dark_background"
+                                android:textAlignment="center"
 
-                                android:textSize="18sp" />
+                                android:textColor="@color/cardview_dark_background"
+                                android:textSize="20dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -106,9 +107,10 @@
                                 android:layout_height="wrap_content"
                                 android:elevation="3dp"
                                 android:text="Second Year Result"
+                                android:textSize="20dp"
                                 android:textColor="@color/cardview_dark_background"
-
-                                android:textSize="18sp" />
+                                android:textAlignment="center"
+                             />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -144,13 +146,14 @@
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:elevation="3dp"
                                 android:text="Third Year Result"
+                                android:textAlignment="center"
+                                android:textSize="20dp"
                                 android:textColor="@color/cardview_dark_background"
-
-                                android:textSize="18sp" />
+                              />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -192,8 +195,10 @@
                                 android:layout_height="52dp"
                                 android:elevation="3dp"
                                 android:text="Fourth Year Result"
+                                android:textAlignment="center"
+                                android:textSize="20dp"
                                 android:textColor="@color/cardview_dark_background"
-                                android:textSize="18sp" />
+                               />
 
                             <TextView
                                 android:layout_width="wrap_content"
