@@ -20,61 +20,58 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.seproject.wayaapp.R;
-import com.seproject.wayaapp.activities.EventActivity;
-import com.seproject.wayaapp.model.Event;
+import com.seproject.wayaapp.activities.MemberActivity;
+import com.seproject.wayaapp.model.Member;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
 
     private Context context;
-    private List<Event> list;
+    private List<Member> list;
 
     FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
     private StorageReference storageReference;
 
-    public EventAdapter(Context context, List<Event> list) {
+    public MemberAdapter(Context context, List<Member> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.event_layout,parent,false);
-        return new EventAdapter.ViewHolder(view);
+    public MemberAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.member_layout,parent,false);
+        return new MemberAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.title.setText(list.get(position).getTitle());
+        holder.name.setText(list.get(position).getName());
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-
         storageReference = FirebaseStorage.getInstance().getReference();
 
-
-        StorageReference profileRef = storageReference.child("societies/"+ list.get(position).getSociety()+"/" + list.get(position).getId()+"/profile.jpg");
+        StorageReference profileRef = storageReference.child("users/"+ list.get(position).getId()+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(holder.flyer);
+                Picasso.get().load(uri).into(holder.memberDp);
             }
         });
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.memberCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, EventActivity.class);
-                intent.putExtra("societyname",list.get(position).getSociety());
-                intent.putExtra("eventId",list.get(position).getId());
-                intent.putExtra("title",list.get(position).getTitle());
-                intent.putExtra("desc",list.get(position).getDesc());
-                intent.putExtra("exp",list.get(position).getExp());
+                Intent intent = new Intent(context, MemberActivity.class);
+                intent.putExtra("societyname",list.get(position).getSocietyName());
+                intent.putExtra("Id",list.get(position).getId());
+                intent.putExtra("name",list.get(position).getName());
+                intent.putExtra("valid",list.get(position).getValid());
                 context.startActivity(intent);
             }
         });
@@ -87,17 +84,19 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private ImageView flyer;
-        private TextView title;
-        private CardView cardView;
+        private ImageView memberDp;
+        private TextView name;
+        //private RecyclerView memberRv;
+        private CardView memberCardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            flyer = itemView.findViewById(R.id.flyer);
-            title = itemView.findViewById(R.id.eventTitle);
+            memberDp = itemView.findViewById(R.id.memberDp);
+            name = itemView.findViewById(R.id.memberName);
+            //memberRv = itemView.findViewById(R.id.member_section_rv);
 
-            cardView = itemView.findViewById(R.id.card_view2);
+            memberCardView = itemView.findViewById(R.id.member_card_view);
 
         }
     }

@@ -28,7 +28,7 @@ public class SocietyActivity extends AppCompatActivity {
     private TextView sName, lName;
     private FirebaseFirestore firebaseFirestore;
     private RelativeLayout events, jobs, messages, about, members;
-    private Button createEvent, sendMsg, postJob;
+    private Button createEvent, sendMsg, postJob,addMe;
     StorageReference storageReference;
     FirebaseAuth fAuth;
 
@@ -52,6 +52,7 @@ public class SocietyActivity extends AppCompatActivity {
         createEvent = findViewById(R.id.createEventBtn);
         sendMsg = findViewById(R.id.sendMsgBtn);
         postJob = findViewById(R.id.postJobBtn);
+        addMe = findViewById(R.id.addMemberBtn);
 
         String sn = getIntent().getStringExtra("sname");
         String ln = getIntent().getStringExtra("lname");
@@ -76,10 +77,28 @@ public class SocietyActivity extends AppCompatActivity {
             }
         });
 
+        members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MembersActivity.class);
+                intent.putExtra("sname",sn);
+                v.getContext().startActivity(intent);
+            }
+        });
+
         createEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CreateEventActivity.class);
+                intent.putExtra("sname",sn);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        addMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddMemberActivity.class);
                 intent.putExtra("sname",sn);
                 v.getContext().startActivity(intent);
             }
