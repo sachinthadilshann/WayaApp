@@ -534,11 +534,12 @@
                             android:text=""
                             android:textColor="@color/cardview_dark_background"
                             android:textSize="18sp" />
+
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="170dp"
+                            android:layout_height="65dp"
                             android:elevation="3dp"
-                            android:text="File Uplod"
+                            android:text="File Upload"
                             android:textColor="@color/cardview_dark_background"
                             android:textSize="18sp" />
 
