@@ -44,14 +44,10 @@ public class Login extends AppCompatActivity {
         mCreateBtn = findViewById(R.id.createText);
         forgotTextLink = findViewById(R.id.forgotPassword);
 
-        b = findViewById(R.id.buu);
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            }
-        });
+
+
+
 
         mCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Downloads extends AppCompatActivity {
 
-    RelativeLayout ll1,ll2,ll3,ll4,Repeat_btn,Exam_application_btn;
+    RelativeLayout ll1,ll2,ll3,ll4,Repeat_btn,Exam_application_btn,Prospectus_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class Downloads extends AppCompatActivity {
         ll4= (RelativeLayout) findViewById(R.id.lev4);
         Repeat_btn = (RelativeLayout)  findViewById(R.id.repeat);
         Exam_application_btn = (RelativeLayout) findViewById(R.id.Exam);
+        Prospectus_btn = (RelativeLayout) findViewById(R.id.prospect);
 
 
 
@@ -37,6 +38,7 @@ public class Downloads extends AppCompatActivity {
         ll2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),level2_Downloads.class)));
         ll4.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),level4_Downloads.class)));
         Exam_application_btn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Exam_Applications.class)));
+        Prospectus_btn.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(),Prospectus.class)));
 
         Repeat_btn.setOnClickListener(v -> {
             initDownloadd();

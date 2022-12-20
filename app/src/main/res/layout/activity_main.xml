@@ -25,13 +25,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="198dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="-8dp"
                 android:background="@drawable/rectangle_gray"
                 android:visibility="visible">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -40,8 +40,8 @@
                     android:layout_centerVertical="true">
 
                     <TextView
-                        android:id="@+id/TVTitle"
-                        android:layout_width="78dp"
+                        android:id="@+id/Title"
+                        android:layout_width="85dp"
                         android:layout_height="60dp"
                         android:text="Home"
                         android:textColor="@color/white"
@@ -51,7 +51,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/TVTitle"
+                        android:layout_below="@+id/Title"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text=""
@@ -59,6 +59,7 @@
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:visibility="gone" />
+
                 </RelativeLayout>
 
 
@@ -533,11 +534,12 @@
                             android:text=""
                             android:textColor="@color/cardview_dark_background"
                             android:textSize="18sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="65dp"
                             android:elevation="3dp"
-                            android:text="File Uplods"
+                            android:text="File Upload"
                             android:textColor="@color/cardview_dark_background"
                             android:textSize="18sp" />
 
@@ -570,7 +572,7 @@
                         android:layout_marginStart="10dp"
                         android:background="@drawable/circle"
                         android:padding="12dp"
-                        android:src="@drawable/p3" />
+                        android:src="@drawable/info" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
