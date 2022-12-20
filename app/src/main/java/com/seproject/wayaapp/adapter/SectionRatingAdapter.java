@@ -12,14 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.StorageReference;
 import com.seproject.wayaapp.R;
 import com.seproject.wayaapp.model.Section;
 import com.seproject.wayaapp.model.SectionRating;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SectionRatingAdapter extends RecyclerView.Adapter<SectionRatingAdapter.ViewHolder> {
     private Context context;

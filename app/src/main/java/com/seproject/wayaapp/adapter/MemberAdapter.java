@@ -104,6 +104,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
                 intent.putExtra("name",list.get(position).getName());
                 intent.putExtra("valid",list.get(position).getValid());
                 context.startActivity(intent);
+
             }
         });
     }

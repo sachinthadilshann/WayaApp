@@ -93,6 +93,8 @@ public class MemberActivity extends AppCompatActivity {
                                 for(DocumentSnapshot snapshot : Objects.requireNonNull(task).getResult()){
                                     list.add(new SectionRating(
                                             snapshot.getString("id"),
+                                            socName,
+                                            memberId,
                                             Integer.parseInt(snapshot.getString("rating"))
                                     ));
                                 }
