@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="horizontal|vertical|none"
     tools:context=".Login">
 
 
@@ -90,6 +89,7 @@
         android:text="New Here ?  Create Account"
         android:textAlignment="center"
         android:textColor="#AC0A2A"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +101,7 @@
         android:layout_height="wrap_content"
         android:text="Forgot Password ?"
         android:textColor="#B63A4C"
+        android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +132,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/waya_app_login" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

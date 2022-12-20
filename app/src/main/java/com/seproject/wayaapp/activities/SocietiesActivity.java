@@ -56,17 +56,19 @@ public class SocietiesActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if(task.isSuccessful())
+                        if(task.isSuccessful()) {
                             isAdmin = task.getResult().getBoolean("isAdmin");
+                            if(!isAdmin){
+                                createBtn.setVisibility(View.GONE);
+                            }
+
+                        }
                     }
                 });
 
         createBtn = findViewById(R.id.create_society_btn);
         societyRV = findViewById(R.id.socirty_RView);
 
-//        if(isAdmin){
-//            createBtn.setVisibility(View.VISIBLE);
-//        }
 
         list = new ArrayList<>();
         adapter = new SocietyAdapter(this,list);

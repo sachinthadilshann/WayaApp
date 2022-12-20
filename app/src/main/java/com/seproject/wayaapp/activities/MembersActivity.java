@@ -73,7 +73,7 @@ public class MembersActivity extends AppCompatActivity {
 
                                 for(DocumentSnapshot snapshot : Objects.requireNonNull(task).getResult()){
 
-                                    if(snapshot.getBoolean("valid")){
+                                    if(Boolean.TRUE.equals(snapshot.getBoolean("valid"))){
                                         list.add(new Member(
                                                 societyName,
                                                 snapshot.getString("id"),

@@ -39,7 +39,7 @@
         android:background="@drawable/edit_text_style"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Email (Only @wyb.ac.lk emails are allowed)"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#000000"

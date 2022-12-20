@@ -7,24 +7,32 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.seproject.wayaapp.R;
+import com.seproject.wayaapp.activities.AddMemberActivity;
 import com.seproject.wayaapp.activities.MemberActivity;
 import com.seproject.wayaapp.model.Member;
+import com.seproject.wayaapp.model.Section;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
 
@@ -49,6 +57,9 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        if(list.get(position).getValid())
+            holder.memberAdd.setVisibility(View.GONE);
         holder.name.setText(list.get(position).getName());
 
         fAuth = FirebaseAuth.getInstance();
@@ -61,6 +72,26 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).into(holder.memberDp);
+            }
+        });
+
+        holder.memberAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.memberAdd.setVisibility(View.GONE);
+                holder.memberRv.setVisibility(View.VISIBLE);
+                list.get(position).setValid(true);
+                DocumentReference docRef = fStore.collection("societies/"+ list.get(position).getSocietyName()+"/members/").document(list.get(position).getId());
+                Map<String,Object> edited = new HashMap<>();
+                edited.put("id",list.get(position).getId());
+                edited.put("name",list.get(position).getName());
+                edited.put("valid",true);
+                docRef.set(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        return;
+                    }
+                });
             }
         });
 
@@ -86,17 +117,19 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
 
         private ImageView memberDp;
         private TextView name;
-        //private RecyclerView memberRv;
+        private RecyclerView memberRv;
         private CardView memberCardView;
+        private Button memberAdd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             memberDp = itemView.findViewById(R.id.memberDp);
             name = itemView.findViewById(R.id.memberName);
-            //memberRv = itemView.findViewById(R.id.member_section_rv);
+            memberRv = itemView.findViewById(R.id.member_section_rv);
 
             memberCardView = itemView.findViewById(R.id.member_card_view);
+            memberAdd = itemView.findViewById(R.id.memberAddBtn);
 
         }
     }

@@ -28,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
@@ -88,6 +90,24 @@ public class Register extends AppCompatActivity {
                 if(TextUtils.isEmpty(number)){
                     mNumber.setError("Registation Number Must be ==6 Characters");
 
+                    return;
+                }
+
+                if (number.matches("[0-9]+") && number.length() != 6){
+                    mNumber.setError("Invalid Index Number");
+                    return;
+                }
+
+                String regex = "^(.+)@(.+)wyb.ac.lk$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(email);
+                if(!matcher.matches()){
+                    mEmail.setError("Not a valid wyb.ac.lk email");
+                    return;
+                }
+
+                if (!email.contains(number)){
+                    mNumber.setError("Index number and Email mismatch");
                     return;
                 }
 

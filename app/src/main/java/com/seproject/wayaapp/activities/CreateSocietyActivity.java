@@ -124,6 +124,7 @@ public class CreateSocietyActivity extends AppCompatActivity {
                     docRef = fStore.collection("societies/"+finalid+"/sections").document(sectionsList.get(i).trim());
                     edited.clear();
                     edited.put("id",sectionsList.get(i).trim());
+                    edited.put("name",finalid);
                     docRef.set(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
